@@ -1,4 +1,4 @@
-package com.binar.rv_binar
+package com.binar.rv_binar.fragment
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
-import com.binar.rv_binar.databinding.FragmentLoginBinding
 import com.binar.rv_binar.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {

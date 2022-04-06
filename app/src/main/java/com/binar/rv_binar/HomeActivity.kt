@@ -18,9 +18,8 @@ class HomeActivity : AppCompatActivity() {
         val sharedPreferences: SharedPreferences =
             this.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 
-        val email_id = sharedPreferences.getString("email", "defaultEmail")
-        val password = sharedPreferences.getString("pass", "defaultPass")
+        val uname = sharedPreferences.getString("uname", "defaultUname")
 
-        binding.tes.text = email_id
+        binding.tes.text = "Hi $uname"
     }
 }

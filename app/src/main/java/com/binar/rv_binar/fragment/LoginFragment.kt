@@ -1,4 +1,4 @@
-package com.binar.rv_binar
+package com.binar.rv_binar.fragment
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
+import com.binar.rv_binar.HomeActivity
+import com.binar.rv_binar.R
 import com.binar.rv_binar.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -42,6 +44,9 @@ class LoginFragment : Fragment() {
                 val password = sharedPreferences.getString("pass", "defaultPass")
 
                 if(email_id.equals(str_email) && password.equals(str_pass)){
+                    val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                    editor.putInt("login", 1)
+                    editor.apply()
                     val intent = Intent(activity, HomeActivity::class.java)
                     activity?.startActivity(intent)
                 }else {
