@@ -45,8 +45,7 @@ class LoginFragment : Fragment() {
 
                 if(email_id.equals(str_email) && password.equals(str_pass)){
                     val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                    editor.putInt("login", 1)
-                    editor.apply()
+                    editor.putInt("login", 1).apply()
                     val intent = Intent(activity, HomeActivity::class.java)
                     activity?.startActivity(intent)
                 }else {

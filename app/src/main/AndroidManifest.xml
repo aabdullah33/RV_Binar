@@ -11,10 +11,12 @@
         android:theme="@style/Theme.RV_Binar">
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"/>
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"/>
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
