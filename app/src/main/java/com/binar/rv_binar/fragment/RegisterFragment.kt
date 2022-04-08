@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.binar.rv_binar.databinding.FragmentRegisterBinding
+import com.google.android.material.textfield.TextInputEditText
 
 class RegisterFragment : Fragment() {
 
@@ -31,10 +33,10 @@ class RegisterFragment : Fragment() {
             requireActivity().getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 
         binding.btnDaftar.setOnClickListener {
-            val uname: String = binding.edtUname.text.toString()
-            val email: String = binding.edtREmail.text.toString()
-            val pass: String = binding.edtPass.text.toString()
-            val cPass: String = binding.edtPassConfirm.text.toString()
+            val uname: String = takeStr(binding.edtUname)
+            val email: String = takeStr(binding.edtREmail)
+            val pass: String = takeStr(binding.edtPass)
+            val cPass: String = takeStr(binding.edtPassConfirm)
             if (uname.isNullOrEmpty() || email.isNullOrEmpty() || pass.isNullOrEmpty() || cPass.isNullOrEmpty()) {
                 Toast.makeText(activity, "FILL IN THE BLANKS!!", Toast.LENGTH_SHORT).show()
             } else {
@@ -52,6 +54,10 @@ class RegisterFragment : Fragment() {
                 }
             }
         }
+    }
+
+    fun takeStr(str: TextInputEditText): String{
+        return str.text.toString()
     }
 
     override fun onDestroy() {

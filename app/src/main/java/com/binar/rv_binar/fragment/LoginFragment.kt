@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
                     val intent = Intent(activity, HomeActivity::class.java)
                     activity?.startActivity(intent)
                 }else {
-                    Toast.makeText(activity,"Data Kosong",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity,"Akun tidak ditemukan",Toast.LENGTH_SHORT).show()
                 }
             }
         }

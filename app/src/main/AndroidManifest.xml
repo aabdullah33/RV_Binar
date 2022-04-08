@@ -12,11 +12,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">

@@ -1,18 +1,19 @@
 package com.binar.rv_binar.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM Note")
-    fun getAllNote(): List<Note>
+    fun getAllNote(): LiveData<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNote(note: Note):Long
+    suspend fun insertNote(note: Note)
 
     @Update
-    fun updateNote(note: Note):Int
+    suspend fun updateNote(note: Note)
 
     @Delete
-    fun deleteNote(note: Note):Int
+    suspend fun deleteNote(note: Note)
 }
