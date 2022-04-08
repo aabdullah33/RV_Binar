@@ -1,13 +1,16 @@
 package com.binar.rv_binar.list
 
+import android.icu.text.IDNA
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.rv_binar.NoteAdapter
+import com.binar.rv_binar.R
 import com.binar.rv_binar.data.Note
 import com.binar.rv_binar.databinding.FragmentListBinding
 import com.binar.rv_binar.viewmodel.NoteViewModel
@@ -38,17 +41,24 @@ class ListFragment : Fragment() {
         })
 
         binding.floatingActionButton.setOnClickListener {
-            insertDataToDatabase()
+            findNavController().navigate(R.id.action_listFragment_to_dialogFragment)
         }
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Note>("key")
+            ?.observe(viewLifecycleOwner) { result ->
+                val judul = result.judul
+                val note = result.note
+                insertDataToDatabase(judul,note)
+            }
 
         return binding.root
     }
 
-    private fun insertDataToDatabase() {
+    private fun insertDataToDatabase(judul : String, note : String) {
         val user = Note(
             0,
-            "Tes",
-            "lastName",
+            judul,
+            note,
         )
         mUserViewModel.insertNote(user)
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()

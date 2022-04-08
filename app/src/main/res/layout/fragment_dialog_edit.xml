@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/darker_beige"
     android:padding="8dp"
-    tools:context=".fragment.DialogFragment">
+    tools:context=".fragment.DialogEditFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Input Data"
+            android:text="EditData"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

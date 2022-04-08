@@ -22,8 +22,8 @@ class HomeActivity : AppCompatActivity() {
 
         val uname = sharedPreferences.getString("uname", "defaultUname")
 
-        binding.tes.text = "Hi $uname"
-        binding.tes3.setOnClickListener {
+        binding.txtWelcome.text = "Hi $uname"
+        binding.txtLogout.setOnClickListener {
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.remove("login").apply()
             val intent = Intent(this, MainActivity::class.java)
