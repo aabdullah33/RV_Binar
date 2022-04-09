@@ -34,29 +34,47 @@ class LoginFragment : Fragment() {
             requireActivity().getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 
         binding.btnLogin.setOnClickListener {
-            val str_email = binding.edtEmail.text.toString()
-            val str_pass = binding.edtPass.text.toString()
+            val strEmail = binding.edtEmail.text.toString()
+            val strPass = binding.edtPass.text.toString()
+            val emailId = sharedPreferences.getString("email", "defaultEmail")
+            val password = sharedPreferences.getString("pass", "defaultPass")
 
-            if(str_email.isNullOrEmpty() || str_pass.isNullOrEmpty()){
-                Toast.makeText(activity,"Please Enter Details.",Toast.LENGTH_SHORT).show()
-            }else {
-                val email_id = sharedPreferences.getString("email", "defaultEmail")
-                val password = sharedPreferences.getString("pass", "defaultPass")
-
-                if(email_id.equals(str_email) && password.equals(str_pass)){
-                    val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                    editor.putInt("login", 1).apply()
-                    val intent = Intent(activity, HomeActivity::class.java)
-                    activity?.startActivity(intent)
-                }else {
-                    Toast.makeText(activity,"Akun tidak ditemukan",Toast.LENGTH_SHORT).show()
-                }
-            }
+            checkLogin(emailId, password, strEmail, strPass)
         }
 
         binding.textRegister.setOnClickListener {
             it.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+    }
+
+    private fun checkLogin(
+        emailSP: String?,
+        passSP: String?,
+        emailInput: String,
+        passInput: String
+    ) {
+
+        if (emailInput.isNotBlank() || passInput.isNotBlank()) {
+
+            if (emailSP.equals(emailInput) && passSP.equals(passInput)) {
+
+                val editor: SharedPreferences.Editor =
+                    requireActivity().getSharedPreferences("SP_INFO", Context.MODE_PRIVATE).edit()
+                editor.putInt("login", 1).apply()
+                val intent = Intent(activity, HomeActivity::class.java)
+                activity?.startActivity(intent)
+
+            } else if (emailSP.equals(emailInput) && !passSP.equals(passInput)) {
+                Toast.makeText(activity, "Password Salah!", Toast.LENGTH_SHORT).show()
+
+            } else {
+                Toast.makeText(activity, "Akun tidak ditemukan", Toast.LENGTH_SHORT).show()
+            }
+
+        } else {
+            Toast.makeText(activity, "Mohon Isi Semua", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     override fun onDestroy() {

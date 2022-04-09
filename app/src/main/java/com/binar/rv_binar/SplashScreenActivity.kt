@@ -22,9 +22,9 @@ class SplashScreenActivity : AppCompatActivity() {
             val sharedPreferences: SharedPreferences =
                 this.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
 
-            val login_stat = sharedPreferences.getInt("login", 0)
+            val loginStat = sharedPreferences.getInt("login", 0)
 
-            if (login_stat.equals(0)) {
+            if (loginStat == 0) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -33,6 +33,6 @@ class SplashScreenActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
-        }, 1500)
+        }, 1000)
     }
 }

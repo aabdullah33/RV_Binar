@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.binar.rv_binar.list.ListFragment"
+        android:name="com.binar.rv_binar.fragment.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <dialog
         android:id="@+id/dialogFragment"
-        android:name="com.binar.rv_binar.fragment.DialogInputFragment"
+        android:name="com.binar.rv_binar.fragment.dialog.DialogInputFragment"
         android:label="fragment_dialog"
         tools:layout="@layout/fragment_dialog_input" >
         <action
@@ -28,11 +28,14 @@
     </dialog>
     <dialog
         android:id="@+id/dialogEditFragment"
-        android:name="com.binar.rv_binar.fragment.DialogEditFragment"
+        android:name="com.binar.rv_binar.fragment.dialog.DialogEditFragment"
         android:label="fragment_dialog_edit"
         tools:layout="@layout/fragment_dialog_edit" >
         <action
             android:id="@+id/action_dialogEditFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="CurrentNote"
+            app:argType="com.binar.rv_binar.data.Note" />
     </dialog>
 </navigation>
