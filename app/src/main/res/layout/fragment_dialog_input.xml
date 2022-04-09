@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/darker_beige"
+    android:padding="8dp"
+    tools:context=".fragment.dialog.DialogInputFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Input Data"
+            android:textColor="@color/dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldJudul"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Judul"
+            android:textColorHint="@color/dark"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginTop="15dp"
+            app:boxStrokeColor="@color/edit_text_box_border_dialog"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/dark"
+            app:layout_constraintEnd_toEndOf="@+id/tvEdit"
+            app:layout_constraintStart_toStartOf="@+id/tvEdit"
+            app:layout_constraintTop_toBottomOf="@+id/tvEdit">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark"
+                android:textCursorDrawable="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Note"
+            android:textColorHint="@color/dark"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginTop="15dp"
+            app:boxStrokeColor="@color/edit_text_box_border_dialog"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/dark"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldJudul"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldJudul"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldJudul">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark"
+                android:textCursorDrawable="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="SIMPAN"
+            android:textColor="@color/dark"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextField"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextField"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextField" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
